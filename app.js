@@ -7,7 +7,7 @@ const userRouter = require("./routes/user");
 dotenv.config({ path: "./config.env" });
 const app = express();
 const PORT = process.env.PORT || 3000;
-const { Expense, Budget, User } = require("./models/models");
+const { Expense, Budget, User } = require("./models/model");
 app.use(express.json());
 
 // Connect to MongoDB

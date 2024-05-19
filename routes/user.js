@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../models/models");
+const { User } = require("../models/model");
 
 router.use((req, res, next) => {
   console.log("Request Body:", req.body);
