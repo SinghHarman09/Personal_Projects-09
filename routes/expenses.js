@@ -1,16 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { Expense } = require("../models/model");
+const Controllers = require("../controllers/expenses");
 
-router.post("/expenses", async (req, res) => {
-  try {
-    const expense = await Expense.create(req.body);
-    console.log("hello", expense);
-    res.status(201).json(expense);
-    console.log("res", res);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-    console.log("error", err);
-  }
-});
+router.post("/expenses", Controllers.createExpense);
+router.get("/allExpenses", Controllers.getExpenses);
+router.get("/:id", Controllers.getExpenseById);
+router.patch("/:id", Controllers.updateExpenseById);
+router.delete("/:id", Controllers.deleteExpenseById);
 module.exports = router;
